@@ -1,0 +1,42 @@
+Power By Jream.LU
+yaf开启namespace的版本
+
+
+1.增加了DB 库
+	增删改查 ORM
+	一个原生语句的执行方法
+	showQuery打印ORM中执行的语句
+
+2.增加了layout布局 库
+	单独布局可在需要的Controller下定义$layout
+
+3.增加了widget 库
+	widget在widgets目录下
+	视图在widget/views,约定视图文件名与类名相同
+	新增的widget需在plugins/Widget中加载
+	
+4.增加了i18n
+	语言在app.ini中设置
+	语言包在app/language中
+	语言包文件夹与app.ini中设置一致
+	语言包中的文件名必须在Library中的package加载
+	调用案例：Lang::goLang ('NICK_NAME')
+	
+5.增加theme 模版
+	在_Base.php增加module判断
+		无module路由加载theme_url
+		有Moudel路由加载module/views
+	在_Base.php下载入模版
+	在路口文件index.php中设置模版路径
+	
+6.nginx配置
+	参见nginx_yaf.conf
+	
+7.定义每个模块中的错误捕捉
+	Error.php
+		错误信息以
+		跳转url
+		错误视图
+		
+8.增加伪静态
+	通过插件类在hooks中切割后缀
