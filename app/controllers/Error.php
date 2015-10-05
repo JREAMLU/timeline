@@ -1,7 +1,7 @@
 <?php
 class ErrorController extends _BaseController {
     
-    protected $layout = 'main_layout';
+    protected $layout = '';
     
     /**
      * 常量(启用命名空间后的常量名) 	说明
@@ -26,6 +26,7 @@ class ErrorController extends _BaseController {
      */
     public function errorAction($exception) {
         error_reporting(E_ERROR);
+        
         //定义错误信息
         switch ($exception->getCode ()) {
             case YAF_ERR_STARTUP_FAILED :
@@ -59,11 +60,11 @@ class ErrorController extends _BaseController {
                 $message = Lang::goLang ( 'YAF_ERR_TYPE_ERROR' ); //521
                 break;
             default :
-                $message = '1';
+                $message = $exception;
                 break;
         }
         
-        var_dump($message);die;
+        // var_dump($message);die;
         $this->getView ()->assign ( "message", '找不到该页面404' );
         $this->getView ()->assign ( "url", BASEURL );
     }

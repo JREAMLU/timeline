@@ -1,5 +1,5 @@
 <header>
-    <h1>Simple, simple, this is life.</h1>
+    <h1><?php echo $intro;?></h1>
 </header>
 
 <section id="cd-timeline" class="cd-container">
