@@ -4,7 +4,7 @@ define ( 'API_URL', HTTP . '42.96.172.43:8080' . DS );
 //define ( 'API_URL', HTTP . '192.168.10.123:8080' . DS );
 define ( 'API_URL_CONTROLLER', 'manage' . DS );
 
-define("YAF_VERSION", "2.2.9");
+define("YAF_VERSION", "2.3.5");
 define("YAF_ENVIRON", "product");
 define("YAF_ERR_STARTUP_FAILED", 512);
 define("YAF_ERR_ROUTE_FAILED", 513);
