@@ -2,6 +2,7 @@
     <h1><?php echo $intro;?></h1>
 </header>
 
+
 <section id="cd-timeline" class="cd-container">
     <?php foreach ($timeline as $key => $val): ?>
         <div class="cd-timeline-block">
