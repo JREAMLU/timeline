@@ -30,6 +30,7 @@ class CurlModel {
         curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header_data );
         curl_setopt ( $ch, CURLOPT_HEADER, 0 );
         curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, http_build_query ( $post_data ) );
         $json = curl_exec ( $ch ); //获取
         curl_close ( $ch );
@@ -65,6 +66,7 @@ class CurlModel {
             curl_setopt ( $ch, CURLOPT_HEADER, 0 );
             curl_setopt ( $ch, CURLOPT_NOSIGNAL, true );
             curl_setopt ( $ch, CURLOPT_POST, 1 );
+            curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
             curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode ( $request['post_data'] ) );
             
             curl_multi_add_handle ( $queue, $ch ) ;
