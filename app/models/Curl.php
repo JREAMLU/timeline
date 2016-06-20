@@ -48,6 +48,7 @@ class CurlModel {
     而不是等待那个最慢的接口返回之后才开始处理等工作, 从而避免CPU的空闲和浪费
     */
     /**
+     * $requests['logo']
      * $requests['url']
      * $requests['post_data']
      * $requests['header_data']
@@ -64,13 +65,12 @@ class CurlModel {
             curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
             curl_setopt ( $ch, CURLOPT_HTTPHEADER, isset($request['header_data']) ? $request['header_data'] : ["Content-Type: application/json; charset=utf-8"] );
             curl_setopt ( $ch, CURLOPT_HEADER, 0 );
-            curl_setopt ( $ch, CURLOPT_NOSIGNAL, true );
             curl_setopt ( $ch, CURLOPT_POST, 1 );
             curl_setopt ( $ch, CURLOPT_NOSIGNAL, 1 );
             curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode ( $request['post_data'] ) );
             
             curl_multi_add_handle ( $queue, $ch ) ;
-            $map[(string) $ch] = $request['url'];
+            $map[(string) $ch] = $request['logo'];
         }
      
         $responses = [];
