@@ -118,6 +118,7 @@ class CurlModel {
 
 $requests = [
     [
+        'logo' => 'a',
         'url' => 'http://localhost/study/curl/servera.php',
         'header_data' => [
             'Content-Type: application/json; charset=utf-8',
@@ -134,6 +135,7 @@ $requests = [
         ]
     ],
     [
+        'logo' => 'b',
         'url' => 'http://localhost/study/curl/serverb.php',
         'post_data' => [
             'name' => 'curry',
@@ -147,8 +149,8 @@ $client = new client();
 $result = $client->RollingCurl($requests);
 var_dump($result);
 
-$servera = $result['http://localhost/study/curl/servera.php']['results']['data'];
-$serverb = $result['http://localhost/study/curl/serverb.php']['results']['data'];
+$servera = $result['a']['results']['data'];
+$serverb = $result['b']['results']['data'];
 
 var_dump( json_decode( $servera ) );
 var_dump( json_decode( $serverb ) );
