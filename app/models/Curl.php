@@ -109,6 +109,24 @@ class CurlModel {
         return compact ( 'data', 'matches' );
     }
     
+    public function generateMKII($request_data = [], $request_time = "", $secret_key = "") {
+		ksort($request_data);
+		echo $this->serialize($request_data).'<br>';
+		return strtoupper(md5(sha1($this->serialize($request_data) . $secret_key . $request_time)));
+	}
+
+	public function serialize($data) {
+		if (is_array($data)) {
+			$str = "";
+			foreach ($data as $key => $value) {
+				$str = sprintf('%s%s%s', $str, $key, $this->serialize($value));
+			}
+			return $str;
+		} else {
+			return $data;
+		}
+	}
+    
     $meta = [
     'source' => 'cgi',
     'version' => 'v1.0',
